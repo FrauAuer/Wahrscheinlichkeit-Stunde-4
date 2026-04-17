@@ -1,120 +1,41 @@
-# 🎲 Würfel-Statistik – Unterrichtsprojekt
+# 🎲 Würfel-Statistik Web-App
 
-Dieses Projekt ist eine einfache Webanwendung für den Mathematikunterricht (Grundschule), mit der Schülerinnen und Schüler ihre Würfelergebnisse eingeben und gemeinsam auswerten können.
+Diese Web-App ermöglicht es Schüler\*innen, Würfelergebnisse einzugeben
+und diese in Echtzeit als Tabelle und Säulendiagramm darzustellen.
 
 ## 🚀 Funktionen
 
-- Eingabe von Würfelergebnissen (Augenzahl 1–6) pro Gruppe  
-- Automatische Berechnung der Gesamtanzahl der Würfe  
-- Speicherung der Daten in einer Firebase Realtime Database  
-- Anzeige aller Ergebnisse im Dashboard:
-  - 📊 Säulendiagramm
-  - 📋 Tabelle mit allen Gruppen
-  - 🔢 Gesamtanzahl der Gruppen und Würfe  
+-   Eingabe von Würfelergebnissen (Augensumme 2--12)
+-   Speicherung der Daten in Firebase
+-   Live-Auswertung im Dashboard
+-   Automatische Berechnung der Gesamtwürfe
+-   Grafische Darstellung als Balkendiagramm
+-   Sortierung der Gruppen nach Nummer
 
----
+## 📁 Projektstruktur
 
-## 🧩 Projektstruktur
-
-- index.html → Eingabeseite für Schülerinnen und Schüler  
-- dashboard.html → Auswertungsseite für die Lehrkraft  
-- firebase-config.js → Verbindung zur Firebase-Datenbank  
-
----
+-   `index.html` → Eingabeseite für Schüler
+-   `dashboard.html` → Auswertung & Visualisierung
+-   `firebase-config.js` → Firebase-Verbindung
 
 ## ⚙️ Einrichtung
 
-### 1. Firebase Projekt erstellen
+1.  Firebase-Projekt erstellen
+2.  Realtime Database aktivieren
+3.  Firebase-Konfigurationsdaten in `firebase-config.js` eintragen
+4.  Dateien auf Webserver oder Firebase Hosting hochladen
 
-1. Gehe zur Firebase Console  
-2. Neues Projekt erstellen  
-3. Realtime Database aktivieren  
-4. Web-App hinzufügen  
+## 🧠 Hinweise
 
-### 2. Firebase konfigurieren
+-   Gruppennummern dürfen nur Zahlen enthalten
+-   Eingabefelder setzen automatisch 0 zurück
+-   Führende Nullen werden entfernt
 
-Trage deine eigenen Firebase-Daten in die Datei firebase-config.js ein:
+## 📊 Nutzung im Unterricht
 
-```js
-const firebaseConfig = {
-  apiKey: "...",
-  authDomain: "...",
-  databaseURL: "...",
-  projectId: "...",
-};
-```
+Ideal für: - Wahrscheinlichkeit (Klasse 4) - Datenauswertung -
+Experimentelles Arbeiten mit Würfeln
 
----
+## 👩‍🏫 Autorin
 
-## ▶️ Nutzung
-
-### Für Schüler:innen
-
-1. Öffne index.html
-2. Gib ein:
-   - Passwort (z. B. Unterrichtscode)
-   - Gruppennummer
-3. Trage die Würfelergebnisse ein
-4. Klicke auf „senden“
-
----
-
-### Für die Lehrkraft
-
-1. Öffne dashboard.html
-2. Gib das gleiche Passwort ein
-3. Klicke auf „anzeigen“
-4. Ergebnisse werden live dargestellt
-
----
-
-## 🔗 Datenstruktur (Firebase)
-
-```
-Stunde4/
-  [lessonCode]/
-    groups/
-      [groupName]/
-        counts:
-          1: Zahl
-          ...
-        total: Zahl
-```
-
----
-
-## 💡 Einsatz im Unterricht
-
-Dieses Tool eignet sich besonders für Themen wie:
-
-- Zufallsexperimente  
-- Häufigkeiten  
-- Wahrscheinlichkeit  
-- Daten auswerten  
-
----
-
-## 🛠️ Technologien
-
-- HTML, CSS, JavaScript  
-- Firebase Realtime Database  
-
----
-
-## 📌 Hinweise
-
-- Keine Anmeldung notwendig  
-- Funktioniert direkt im Browser  
-- Ideal für Tablets oder Computer im Klassenzimmer  
-
----
-
-## ✏️ Autorin
-
-Leonie Auer  
-
----
-
-## 📄 Lizenz
-
-Dieses Projekt kann frei für Unterrichtszwecke verwendet werden.
+Leonie Auer
