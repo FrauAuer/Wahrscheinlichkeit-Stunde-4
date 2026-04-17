@@ -1,40 +1,42 @@
-# 🎲 Würfel-Statistik Web-App
+# 🎲 Würfel-Statistik Dashboard
 
-Diese Web-App ermöglicht es Schüler\*innen, Würfelergebnisse einzugeben
-und diese in Echtzeit als Tabelle und Säulendiagramm darzustellen.
+Diese Web-App zeigt die Ergebnisse von Würfelexperimenten
+übersichtlich und in Echtzeit an.
 
 ## 🚀 Funktionen
 
--   Eingabe von Würfelergebnissen (Augensumme 2--12)
--   Speicherung der Daten in Firebase
--   Live-Auswertung im Dashboard
--   Automatische Berechnung der Gesamtwürfe
--   Grafische Darstellung als Balkendiagramm
--   Sortierung der Gruppen nach Nummer
+- Anzeige aller Gruppenergebnisse
+- Automatische Summenberechnung
+- Balkendiagramm zur Visualisierung
+- Live-Updates aus Firebase
+- Sortierung der Gruppen nach Nummer
 
 ## 📁 Projektstruktur
 
--   `index.html` → Eingabeseite für Schüler
--   `dashboard.html` → Auswertung & Visualisierung
--   `firebase-config.js` → Firebase-Verbindung
+- `dashboard.html` → Auswertung & Visualisierung
+- `firebase-config.js` → Firebase-Verbindung
 
 ## ⚙️ Einrichtung
 
-1.  Firebase-Projekt erstellen
-2.  Realtime Database aktivieren
-3.  Firebase-Konfigurationsdaten in `firebase-config.js` eintragen
-4.  Dateien auf Webserver oder Firebase Hosting hochladen
+1. Firebase-Projekt erstellen
+2. Realtime Database aktivieren
+3. Firebase-Konfigurationsdaten in `firebase-config.js` eintragen
+4. Dateien auf Webserver oder Firebase Hosting hochladen
 
 ## 🧠 Hinweise
 
--   Gruppennummern dürfen nur Zahlen enthalten
--   Eingabefelder setzen automatisch 0 zurück
--   Führende Nullen werden entfernt
+- Daten werden aus folgendem Pfad geladen:
+  `Stunde4/{Passwort}/groups`
+- Es werden alle Augenzahlen (1–6) automatisch aufsummiert
+- Diagramm passt sich dynamisch an die Werte an
 
 ## 📊 Nutzung im Unterricht
 
-Ideal für: - Wahrscheinlichkeit (Klasse 4) - Datenauswertung -
-Experimentelles Arbeiten mit Würfeln
+Ideal für:
+- Wahrscheinlichkeit (Klasse 4)
+- Würfelexperimente
+- Häufigkeiten vergleichen
+- Gesetz der großen Zahlen vorbereiten
 
 ## 👩‍🏫 Autorin
 

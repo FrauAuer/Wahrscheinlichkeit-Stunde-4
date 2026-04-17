@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wie oft würfelst du welche Augensumme?</title>
+  <title>Wie oft würfelst du welche Augenzahl?</title>
   <style>
     :root {
       --bg: #f4f6fa;
@@ -124,37 +124,24 @@
       text-align: center;
     }
     
-    /* Nur die äußeren Trennlinien im Tabellenkopf */
-    thead tr:first-child th:first-child {
-      border-right: 2px solid #111827;
-    }
+    tbody td:nth-child(2),
+    thead th:nth-child(2) {border-left: 2px solid #111827;}
 
-    thead tr:first-child th:last-child {
-      border-left: 2px solid #111827;
-    }
-
-    /* Nur die äußeren Trennlinien im Tabellenkörper */
-    tbody td:nth-child(2) {
-      border-left: 2px solid #111827;
-    }
-
-    tbody td:nth-child(13) {
-      border-left: 2px solid #111827;
-    }
+    tbody td:nth-child(8),
+    thead th:nth-child(8) {border-left: 2px solid #111827;}
 
     .small { color: var(--muted); }
     .hint { color: var(--muted); }
-    .chart-caption { text-align: center; margin-top: 12px; }
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="card">
-      <h1>Wie oft würfelst du welche Augensumme?</h1>
+      <h1>Wie oft würfelst du welche Augenzahl?</h1>
       <div class="row">
         <div class="field">
           <label for="lessonCode">Passwort</label>
-          <input id="lessonCode" type="text" placeholder="55" />
+          <input id="lessonCode" type="text" placeholder="44" />
         </div>
         <div>
           <button id="loadBtn">anzeigen</button>
@@ -165,7 +152,6 @@
     <div class="card">
       <h2>Unsere Ergebnisse als Säulendiagramm</h2>
       <div class="chart" id="chart"></div>
-      <p class="chart-caption"><strong>Augensumme</strong></p>
     </div>
 
     <div class="card">
@@ -173,23 +159,14 @@
       <table>
         <thead>
           <tr>
-            <th rowspan="2">Gruppennummer</th>
-            <th colspan="11">Augensumme</th>
-            <th rowspan="2">Anzahl der Würfe</th>
-          </tr>
-          <tr>
-            <th>2</th>
-            <th>3</th>
-            <th>4</th>
-            <th>5</th>
-            <th>6</th>
-            <th>7</th>
-            <th>8</th>
-            <th>9</th>
-            <th>10</th>
-            <th>11</th>
-            <th>12</th>
-            
+            <th>Gruppennummer</th>
+            <th>Augenzahl 1</th>
+            <th>Augenzahl 2</th>
+            <th>Augenzahl 3</th>
+            <th>Augenzahl 4</th>
+            <th>Augenzahl 5</th>
+            <th>Augenzahl 6</th>
+            <th>Anzahl der Würfe</th>
           </tr>
         </thead>
         <tbody id="groupsBody"></tbody>
@@ -247,7 +224,7 @@
         const label = document.createElement('div');
         label.className = 'bar-label';
 
-        const labels = ['2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+        const labels = ['Augenzahl 1', 'Augenzahl 2', 'Augenzahl 3', 'Augenzahl 4', 'Augenzahl 5', 'Augenzahl 6'];
         label.textContent = labels[index];
 
         wrap.appendChild(valueLabel);
@@ -274,11 +251,6 @@
             <td>${counts['4'] || 0}</td>
             <td>${counts['5'] || 0}</td>
             <td>${counts['6'] || 0}</td>
-            <td>${counts['7'] || 0}</td>
-            <td>${counts['8'] || 0}</td>
-            <td>${counts['9'] || 0}</td>
-            <td>${counts['10'] || 0}</td>
-            <td>${counts['11'] || 0}</td>
             <td>${group.total || 0}</td>
           `;
           groupsBody.appendChild(tr);
@@ -293,16 +265,16 @@
         off(currentRef, 'value', currentCallback);
       }
 
-      currentRef = ref(db, `Stunde5/${lessonCode}/groups`);
+      currentRef = ref(db, `Stunde4/${lessonCode}/groups`);
       currentCallback = (snapshot) => {
         const data = snapshot.val() || {};
         const groups = Object.values(data);
 
-        const totals = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        const totals = [0, 0, 0, 0, 0, 0];
         let total = 0;
         groups.forEach(group => {
           const counts = group.counts || {};
-          for (let i = 1; i <= 11; i++) {
+          for (let i = 1; i <= 6; i++) {
             totals[i - 1] += Number(counts[String(i)] || 0);
           }
           total += Number(group.total || 0);
@@ -321,7 +293,7 @@
     if (lessonCodeInput.value.trim()) {
       loadLesson();
     } else {
-      renderChart([0,0,0,0,0,0,0,0,0,0,0]);
+      renderChart([0,0,0,0,0,0]);
     }
   </script>
 </body>
