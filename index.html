@@ -283,7 +283,7 @@
 
       try {
         await set(ref(db, `Stunde4/${lessonCode}/groups/${groupKey}`), payload);
-        showMessage(`gespeichert: Gruppe ${groupName} hat ${total} Ziehungen eingetragen.`, 'ok');
+        showMessage(`gespeichert: Gruppe ${groupName} hat ${total} Würfe eingetragen.`, 'ok');
       } catch (error) {
         console.error(error);
         showMessage('Speichern nicht möglich. Bitte versucht es erneut oder fragt Frau Auer.', 'warn');
